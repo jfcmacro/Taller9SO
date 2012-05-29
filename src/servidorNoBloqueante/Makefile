@@ -1,4 +1,4 @@
-CFLAGS=-I"../include"
+CFLAGS=--shared -fPIC -I"../include"
 LDFLAGS=-L"../lib" -lutilidades
 
 all: servidorNoBloqueante

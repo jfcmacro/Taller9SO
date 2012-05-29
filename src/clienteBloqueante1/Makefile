@@ -1,5 +1,5 @@
 CFLAGS=-I../include
-LDFLAGS=-L../lib -lutilidades
+LDFLAGS=--shared -fPIC -L../lib -lutilidades
 
 all: clienteBloqueante
 

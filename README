@@ -1,0 +1,109 @@
+
+Antes de compilar los programas es necesario crear una biblioteca de
+enlace dinámico:
+
+1. Vaya a la carpeta src/utilidades
+2. Ejecute el make en dicho directorio
+$ make
+
+Listo esto ha creado una carpeta src/lib que contiene el archivo
+libutilidades.so
+
+* Variables de ambiente
+
+Para ejecutar los siguiente programas es necesario que establesca
+la variable de ambiente en cada terminal que va a utilizar para 
+ejecutar el cliente y el servidor.
+
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<dir_donde_instalo_taller8>/src/lib
+
+* Bloqueante:
+
+Abra dos terminales, establezca la variable de ambiente en cada una 
+de ellas.
+En la primera terminal ejecute el servidor:
+
+$ cd src/servidorBloqueante1
+$ ./servidorBloqueante /tmp/sockBlock1
+
+En la segunda terminal ejecute el cliente:
+
+$ cd src/clienteBloqueante1
+$ ./clienteBloqueante /tmp/sockBlock1 
+
+Es importante que el argumento sea un fichero (socket) con el cual ambos
+se comunicarán.
+
+* Bloqueante con hilos:
+
+Abra dos terminales, establezca la variable de ambiente en cada una 
+de ellas.
+En la primera terminal ejecute el servidor:
+
+$ cd src/servidorBloqueante2
+$ ./servidorBloqueante2 /tmp/sockBlock2
+
+En la segunda terminal ejecute el cliente:
+
+$ cd src/clienteBloqueante2
+$ ./clienteBloqueante2 /tmp/sockBlock2
+
+Es importante que el argumento sea un fichero (socket) con el cual ambos
+se comunicarán.
+
+* No bloqueante
+
+Abra dos terminales, establezca la variable de ambiente en cada una 
+de ellas.
+
+En la primera terminal ejecute el servidor:
+
+$ cd src/servidorNoBloqueante
+$ ./servidorNoBloqueante /tmp/sockNoBlock
+
+En la segunda terminal ejecute el cliente:
+
+$ cd src/clienteNoBloqueante
+$ ./clienteNoBloqueante /tmp/sockBlock
+
+Es importante que el argumento sea un fichero (socket) con el cual ambos
+se comunicarán.
+
+* Multiplexado.
+
+Abra dos terminales, establezca la variable de ambiente en cada una 
+de ellas.
+
+En la primera terminal ejecute el servidor:
+
+$ cd src/servidorMultiplexado
+$ ./servidorMultiplexado /tmp/sockMultiplexado
+
+En la segunda terminal ejecute el cliente:
+
+$ cd src/clienteMultiplexado
+$ ./clienteMultiplexado /tmp/sockMultiplexado
+
+Es importante que el argumento sea un fichero (socket) con el cual ambos
+se comunicarán.
+
+* Señales
+
+Abra dos terminales, establezca la variable de ambiente en cada una 
+de ellas.
+
+En la primera terminal ejecute el servidor:
+
+$ cd src/servidorConducidoPorSenales
+$ ./servidorConducidoPorSenales /tmp/sockConducidoPorSenales
+
+En la segunda terminal ejecute el cliente:
+
+$ cd src/clienteConducidoPorSenales
+$ ./clienteConducidoPorSenales /tmp/sockConducidoPorSenales
+
+Es importante que el argumento sea un fichero (socket) con el cual ambos
+se comunicarán.
+
+
+
