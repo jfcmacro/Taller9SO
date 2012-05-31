@@ -9,7 +9,10 @@ OUT = ../lib/libutilidades.a
 
 all: $(OUT)
 
-${OUT}: $(OBJ)
+../lib:
+	mkdir ../lib
+
+${OUT}: $(OBJ) ../lib
 	ar rcs $@ $(OBJ)
 
 clean:

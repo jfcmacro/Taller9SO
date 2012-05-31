@@ -2,7 +2,7 @@
 Antes de compilar los programas es necesario crear una biblioteca
 de enlace estático.
 
-1. Vaya a la carpeta src/utilidades
+1. Muevase a la carpeta src/utilidades
 2. Ejecute el make en dicho directorio
 $ make
 
