@@ -1,15 +1,16 @@
-CFLAGS=--shared -fPIC
-LDFLAGS=--shared
+CFLAGS=
+LDFLAGS=
 
-.phony: ../lib
+SRC = mksocket.c leerEscribir.c mkconnect.c usage.c ioutils.c
 
-all: ../lib/libutilidades.so
+OBJ = $(SRC:.c=.o)
 
-../lib: 
-	mkdir ../lib
+OUT = ../lib/libutilidades.a
 
-../lib/libutilidades.so: mksocket.o leerEscribir.o mkconnect.o usage.o ioutils.o ../lib
-	gcc --shared -o $@ mksocket.o leerEscribir.o mkconnect.o usage.o ioutils.o
+all: $(OUT)
 
-clean: 
-	rm -f *.o
+${OUT}: $(OBJ)
+	ar rcs $@ $(OBJ)
+
+clean:
+	rm -f $(OBJ) $(OUT) 

@@ -1,7 +1,19 @@
-CFLAGS=--shared -fPIC -I"../include"
-LDFLAGS=-L"../lib" -lutilidades
+CFLAGS=-I../include
+LDFLAGS=../lib/libutilidades.a
 
-all: clienteMultiplexado
+SRC=clienteMultiplexado.c
 
-clean:
-	rm -f clienteMultiplexado
+OBJ=$(SRC:.c=.o)
+
+TARGET=$(SRC:.c=)
+
+all: $(TARGET)
+
+$(OBJ): $(SRC)
+
+$(TARGET): $(OBJ)
+	$(CC) -o $@ $< $(LDFLAGS)
+
+clean: 
+	rm -f $(OBJ) $(TARGET)
+

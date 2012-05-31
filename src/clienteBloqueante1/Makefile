@@ -1,7 +1,18 @@
 CFLAGS=-I../include
-LDFLAGS=--shared -fPIC -L../lib -lutilidades
+LDFLAGS=../lib/libutilidades.a
 
-all: clienteBloqueante
+SRC=clienteBloqueante.c
+
+OBJ=$(SRC:.c=.o)
+
+TARGET=$(SRC:.c=)
+
+all: $(TARGET)
+
+$(OBJ): $(SRC)
+
+$(TARGET): $(OBJ)
+	$(CC) -o $@ $< $(LDFLAGS)
 
 clean: 
-	rm -f clienteBloqueante
+	rm -f $(OBJ) $(TARGET)

@@ -1,7 +1,19 @@
-CFLAGS=--shared -fPIC -I"../include"
-LDFLAGS=-L"../lib" -lutilidades -lpthread
+CFLAGS=-I../include
+LDFLAGS=../lib/libutilidades.a -lpthread
 
-all: servidorBloqueante2
+SRC=servidorBloqueante2.c
 
-clean:
-	rm -f servidorBloqueante2
+OBJ=$(SRC:.c=.o)
+
+TARGET=$(SRC:.c=)
+
+all: $(TARGET)
+
+$(OBJ): $(SRC)
+
+$(TARGET): $(OBJ)
+	$(CC) -o $@ $< $(LDFLAGS)
+
+clean: 
+	rm -f $(OBJ) $(TARGET)
+

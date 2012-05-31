@@ -1,21 +1,13 @@
 
-Antes de compilar los programas es necesario crear una biblioteca de
-enlace dinámico:
+Antes de compilar los programas es necesario crear una biblioteca
+de enlace estático.
 
 1. Vaya a la carpeta src/utilidades
 2. Ejecute el make en dicho directorio
 $ make
 
 Listo esto ha creado una carpeta src/lib que contiene el archivo
-libutilidades.so
-
-* Variables de ambiente
-
-Para ejecutar los siguiente programas es necesario que establesca
-la variable de ambiente en cada terminal que va a utilizar para 
-ejecutar el cliente y el servidor.
-
-$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<dir_donde_instalo_taller8>/src/lib
+libutilidades.a
 
 * Bloqueante:
 

@@ -1,7 +1,18 @@
-CFLAGS=--shared -fPIC -I ../include
-LDFLAGS=-L../lib -lutilidades 
+CFLAGS=-I../include
+LDFLAGS=../lib/libutilidades.a
 
-all: clienteConducidoPorSenales
+SRC=clienteConducidoPorSenales.c
 
-clean:
-	rm -f clienteConducidoPorSenales
+OBJ=$(SRC:.c=.o)
+
+TARGET=$(SRC:.c=)
+
+all: $(TARGET)
+
+$(OBJ): $(SRC)
+
+$(TARGET): $(OBJ)
+	$(CC) -o $@ $< $(LDFLAGS)
+
+clean: 
+	rm -f $(OBJ) $(TARGET)
